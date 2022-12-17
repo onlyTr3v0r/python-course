@@ -1,11 +1,11 @@
 import pygame
 
 WIDTH, HEIGHT = SCR_DIM = 800, 800
-FPS = 10
+FPS = 5
 
 pygame.init()
 screen = pygame.display.set_mode(SCR_DIM)
-pygame.display.set_caption("Course - Snake")
+pygame.display.set_caption("Python Course")
 clock = pygame.time.Clock()
 
 running = True
