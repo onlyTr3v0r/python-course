@@ -38,3 +38,9 @@ It should be:
   (`iterable[-n]`) is equivalent to `iterable[len(iterable) - n]`
 
 - Consider making the player less than (0.8) the width of the tiles for visual distinction & flair
+
+- Fix superscript notation, used in notes in lesson 1. This doesnt work in github apparently. Also add "how to read notes" in getting_started.md
+
+- Improve on function syntax explanation. Read Andrew's notes.
+
+- Consider switching `if` and `elif` explanations in lesson 1

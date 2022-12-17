@@ -11,7 +11,7 @@ We will produce a blank window which will be the basis of our game.
 *Variables* are possibly the most important concept in programming. They are the building blocks of all programs.
 Variables store data. This data has a specified *type*.
 
-You can think of variables like digital boxes. A box is labelled and is used to store [TODO: better term] data. You can open a box and look at, or change^[1]^ its contents at any time. Boxes come in different shapes and sizes, each containing a different type of [TODO: As above] data.
+You can think of variables like digital boxes. A box is labelled and is used to store data. You can open a box and look at, or change^[1]^ its contents at any time. Boxes come in different shapes and sizes, each containing a different type of data.
 Similarly, variables have a name, store data, have a type that matches the data they store and can be read from and written to.
 
 ^[1]^ Some variables cannot be changed - these variables are known as *immutable*. You can think of these variables as data in a display cabinet - although you can look at the data, you cannot change it!
