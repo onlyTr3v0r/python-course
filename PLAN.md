@@ -14,7 +14,7 @@ Must include:
 It should be:
 
 - Non-trivial
-- Simple enough for 10 y/os to learn in 5/6 hours
+- Simple enough for beginners to learn in 5/6 hours
 - Decently fun & engaging
 - Something tangible as an end result
 
