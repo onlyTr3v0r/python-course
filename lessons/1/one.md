@@ -11,15 +11,11 @@ We will produce a blank window which will be the basis of our game.
 *Variables* are possibly the most important concept in programming. They are the building blocks of all programs.
 Variables store data. This data has a specified *type*.
 
-You can think of variables like digital boxes. A box is labelled and is used to store data. You can open a box and look at, or change^[1]^ its contents at any time. Boxes come in different shapes and sizes, each containing a different type of data.
+You can think of variables like digital boxes. A box is labelled and is used to store data. You can open a box and look at, or change [see: mutability] its contents at any time. Boxes come in different shapes and sizes, each containing a different type of data.
 Similarly, variables have a name, store data, have a type that matches the data they store and can be read from and written to.
 
-^[1]^ Some variables cannot be changed - these variables are known as *immutable*. You can think of these variables as data in a display cabinet - although you can look at the data, you cannot change it!
-A variable's ability to be changed (or not) is known as *mutability*. All variables in Python are mutable - however, by convention, Python variables named in UPPER_CASE should not be re-assigned to.
-Other languages do feature immutable variables (often through keywords like `const` or `final`) that will crash if you *do* attempt to re-assign to them.
-
 Let's write some code!
-One thing to note: in python, you can write comments to explain pieces of code! These are marked by a `#` and are ignored by the python interpreter (code runner), and are used to explain the code that you write.
+One thing to note: in python, you can write comments to explain pieces of code! These are marked by a `#` and are ignored by the *python interpreter* (code runner), and are used to explain the code that you write.
 
 Variables in python are declared with the following syntax:
 
@@ -110,9 +106,21 @@ def <function name>(<arguments, if any>):
     <body>
 ```
 
-First, you start with the `def` (short for 'define') keyword. This is followed by the function's name, which follows the same rules as variable names, as listed above. Then, you have a pair of parenthesises (`()`), which can optionally contain arguments. These will be covered in more detail in the next lesson, but, in short, arguments allow the user to pass variables into functions when that function is *called* (executed). The parenthesis are followed by a colon (`:`). And finally, there is a *function body*, which is the code that will be run when the function is called. Note: the code in the body is indented (usually by 4 spaces or 1 tab - which is used is preference but 4 spaces is considered the standard). This is a very important aspect of python: the scope (what part of code a *statement* belongs to) a *statement* (line of code) belongs to is controlled by how *indented* it is, or how many spaces there are before it.
+As the syntax of functions is more complex then anything else we have covered, we will break it down as follows:
+
+- First, you start with the `def` keyword - this is short for 'define'.
+
+- This is followed by the function's name, which follows the same rules as variable names, as listed above.
+
+- Then, you have a pair of parenthesises (`()`), which can optionally contain arguments. These will be covered in more detail in the next lesson, but, in short, arguments allow the user to pass variables into functions when that function is *called* (executed).
+
+- The parenthesis are followed by a colon (`:`).
+
+- And finally, there is a *function body*, which is the code that will be run when the function is called. 
 
 This line of code (beginning with `def` and ending with the colon, `:`) is known as the function *signature*. It tells the programmer, or anyone reading the code what the function *is* and defines it - for example, it gives its name (`<function_name>`) and the different arguments (`<arguments, if any`).
+
+Note: the code in the body is indented (usually by 4 spaces or 1 tab - which is used is preference but 4 spaces is considered the standard). This is a very important aspect of python: the scope (what part of code a *statement* belongs to) a *statement* (line of code) belongs to is controlled by how *indented* it is, or how many spaces there are before it.
 
 For example: (you will learn about `if` and `!=` later on)
 
@@ -139,9 +147,7 @@ def incorrect():
 print("But this won't")
 ```
 
-Also note that only code in *global scope* (not indented) will be executed *unconditionally*^[2]^ (will always be executed) by the python interpreter.
-
-^[2]^ This is technically not true (ex. calling `sys.exit()` stops execution) but is good enough for a basic understanding.
+All code in *global scope* (not indented) will be executed from top to bottom by the python interpreter.
 
 Functions are called by entering their name, followed again with parenthesis, containing any arguments.
 
@@ -237,9 +243,7 @@ elif <condition 2>:
 
 The python interpreter will read the blocks line by line. One could read this, in English, as "if 'condition 1' is true, execute 'body 1'. If not (else if) 'condition 2' is true, execute 'body 2'".
 
-Note: this means `<body 2>` will only execute if `<condition 2>` is True **and** `<condition 1>` if False - if `<condition 1>` was true, `<body 1>` would be executed before `<condition 2>` has as chance to be evaluated (and thus, if true, `<body 2>` executed). This property is known as *short-circuiting*^[4]^. If you want to avoid this behaviour, you can turn the `elif` keyword into an `if` keyword - then its corresponding condition and body will be evaluated and (if true) executed regardless if `<condition 1>` evaluates to `True` or not.
-
-^[4]^ The term *short-circuiting* is normally used to describe a similar phenomena occurring with *logical operators*, as will be discussed later. However it is still applicable here.
+Note: this means `<body 2>` will only execute if `<condition 2>` is True **and** `<condition 1>` if False - if `<condition 1>` was true, `<body 1>` would be executed before `<condition 2>` has as chance to be evaluated (and thus, if true, `<body 2>` executed). This property is known as *short-circuiting* [short circuiting]. If you want to avoid this behaviour, you can turn the `elif` keyword into an `if` keyword - then its corresponding condition and body will be evaluated and (if true) executed regardless if `<condition 1>` evaluates to `True` or not.
 
 You can chain `elif`s together, like so:
 
@@ -261,7 +265,7 @@ Finally, there is the `else` keyword. The `else` keyword can optionally **follow
 
 Conditions are used widely in python (+ in other languages) - most commonly in `if` or `elif` statements. As explained above, they are *expressions* that *resolve* or *evaluate* to either `True` or `False`.
 
-Variables always evaluate to `True` unless they are: ^[4]^
+Variables always evaluate to `True` unless they are: [casting to boolean]
 
 - A false boolean (`False`)
 
@@ -272,8 +276,6 @@ Variables always evaluate to `True` unless they are: ^[4]^
 - An empty iterable - covered in a later lesson (`[]`, `{}`, `()`)
 
 - The null type (`None`)
-
-^[4]^ There are a few other cases where a variable evaluates to `False` - notably, any instance of a class whose `__bool__` or `__len__` methods (`__bool__` takes priority) return any value that evaluates to `False` (this is *recursive*). You can follow this rule for the above values; `"".__len__() == 0`, `0.__bool__() == False`, with `False` being the final evaluation. However, the above examples are the most important to remember.
 
 Variables are evaluated to a boolean implicitly when used in *constructs* (statements) like `if` and `elif`, however this can be done manually by calling `bool(<variable>)`. 
 
@@ -364,11 +366,9 @@ pygame.display.set_name("Python Course")
 clock = pygame.time.Clock()
 ```
 
-This first line initialises pygame by calling an `init()` *function*, and is required by every pygame program. Next, we create a very important variable named `screen`. This creates our game's window, and is where we will draw our snake, and other game components. We also call a pygame function to change the name of the newly created window to something appropriate - feel free to choose another name! On the final line of this addition we create a `clock` variable - this will be used to control the *framerate* (how fast the game re-draws its screen) of the game.
+This first line initialises pygame by calling an `init()` *function*, and is required by every pygame program. Next, we create a very important variable named `screen`. This creates our game's window, and is where we will draw our snake, and other game components. We also call a pygame function to change the name of the newly created window to something appropriate - feel free to choose another name! On the final line of this addition we create a `clock` variable - this will be used to control the *framerate* (how fast the game updates & re-draws its screen) of the game.
 
-If you run the code now, you might see a glimpse of a window, as it is created and subsequently (and very quickly) destroyed. This happens because the python interpreter runs code very fast,^[5]^ so as soon as the window is created by the `set_mode`call the program ends, and the window is closed again. To fix this, add the following lines of code:
-
-^[5]^ ..ish
+If you run the code now, you might see a glimpse of a window, as it is created and subsequently (and very quickly) destroyed. This happens because the python interpreter runs code very fast, [performance] so as soon as the window is created by the `set_mode`call the program ends, and the window is closed again. To fix this, add the following lines of code:
 
 ```python
 running = True
@@ -387,6 +387,8 @@ Firstly, we create a variable named `running`. This will store whether the game 
 Inside the loop, we define a `for` loop. This exposes a fundamental concept of pygame - the event loop. Every time an *event* is registered by pygame, it is added to a list of all other events that have occurred since the last frame. An event is any action that has occurred since the last frame - for example, a key being pressed or the window being closed. We can access this list of events by calling `pygame.event.get()`, and loop over it with the `for event in pygame.event.get():` line shown above.
 
 Next, we use an `if` check to check if the *type* of event is `pygame.QUIT`. You can use the `.` notation to access a *property* of a variable - which is basically a variable contained by another variable. We will discuss the in more depth later in the course. Also note that the `type` *attribute* (property) of an `Event` *doesn't* represent the type of the variable, in terms of what kind of data it holds. It simply tells us that the event is a message to say "The user has closed the window" (usually by clicking the `X` on the title bar). When we get this 'message', we set the `running` variable to `False` - as discussed above this stops the `while` loop from executed the loop's body, and thus will stop the program's execution. When the loop is broken out of, the `pygame.quit()` function will be called. Just as we initialised the pygame module, we must also quit it once we have stopped our game.
+
+In short, we check if any new events have been emitted by pygame with a `while`. We check if one of these events is an event of type `pygame.QUIT`, which is emitted when we attempt to close the game window. If it is, we exit the loop, and thus stop the game.
 
 The final step to get our basic window up & running is to call add a few more function calls.
 
@@ -407,3 +409,27 @@ The next addition is `pygame.display.flip()`. This function pushes all changes m
 Now, if you run the file, you will be able to see a blank, white window. If you click the `X` to close the window, the program will exit gracefully!
 
 With this done, the first lesson of the course is concluded. This has covered the basics of python & programming, which we have used to make a window draw to the screen. We will expand on the concepts and code covered here in future lessons to build up our game!
+
+## Notes
+
+### Mutability
+
+Some variables cannot be changed - these variables are known as *immutable*. You can think of these variables as data in a display cabinet - although you can look at the data, you cannot change it!
+A variable's ability to be changed (or not) is known as *mutability*. All variables in Python are mutable - however, by convention, Python variables named in UPPER_CASE should not be re-assigned to.
+Other languages do feature immutable variables (often through keywords like `const` or `final`) that will crash if you *do* attempt to re-assign to them.
+
+### Global Scope
+
+This is technically not true (ex. calling `sys.exit()` or `while True`).
+
+### Short Circuiting
+
+The term *short-circuiting* is normally used to describe a similar phenomena occurring with *logical operators*, as will be discussed later. However it is still applicable here.
+
+### Casting to Boolean
+
+There are a few other cases where a variable evaluates to `False` - notably, any instance of a class whose `__bool__` or `__len__` methods (`__bool__` takes priority) return any value that evaluates to `False` (this is *recursive*). You can follow this rule for the above values; `"".__len__() == 0`, `0.__bool__() == False`, with `False` being the final evaluation. However, the above examples are the most important to remember.
+
+### Performance
+
+..ish. Python is notoriously very slow, compared to other popular languages. However, especially for very small programs like this, it is still, to people, very fast.
