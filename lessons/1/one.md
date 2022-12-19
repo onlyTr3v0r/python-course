@@ -6,6 +6,12 @@ This lesson will cover variable declaration syntax, common types, `if`, `elif` a
 
 We will produce a blank window which will be the basis of our game.
 
+## Execution
+
+Code is normally executed from the top down - barring blocks like `if` and functions, as will be explained later on.
+
+In python, you can write comments to explain pieces of code. These are marked by a `#` and any text following the `#` to the end of the line is ignored by the *python interpreter* (code runner) They are used to explain the code that you write.
+
 ## Variables
 
 *Variables* are possibly the most important concept in programming. They are the building blocks of all programs.
@@ -15,7 +21,6 @@ You can think of variables like digital boxes. A box is labelled and is used to 
 Similarly, variables have a name, store data, have a type that matches the data they store and can be read from and written to.
 
 Let's write some code!
-One thing to note: in python, you can write comments to explain pieces of code! These are marked by a `#` and are ignored by the *python interpreter* (code runner), and are used to explain the code that you write.
 
 Variables in python are declared with the following syntax:
 
@@ -55,7 +60,7 @@ x = "A string!"
 x = 18
 ```
 
-## Types
+### Types
 
 Every variable has a *type*. A variable's type is the kind of data it can hold.
 
@@ -83,6 +88,47 @@ an_int = 18
 print(type(a_string))
 # >> <class 'int'>
 ```
+
+### Type Casting
+
+Variables of one type can be *cast* (changed) from one type to another. For example, to turn a variable into an integer (a number), you use the `int()` function. For example:
+
+```python
+x = "18"
+print(type(x)) # >> <class 'str'>
+x = int(x)     # Turn x into an integer of itself
+print(type(x)) # >> <class 'int'>
+```
+
+Some common casting functions are listed below:
+
+- `int(x)` turns `x` into an integer
+
+- `str(x)` turns `x` into a string
+
+- `float(x)` turns `x` into a floating point number (decimal)
+
+- `bool(x)` turns `x` into a boolean (note: the boolean casting rules are complex and will be explained in greater depth later)
+
+Note: if an invalid data type is passed to a casting function, or the input is malformed (ex. trying to cast `"bobirty"` to an integer), the function will *raise* (throw; cause) and *exception* (error). You will learn about how to deal with this later in the course.
+
+## Basic Operations
+
+Python supports the basic mathematical operations. Namely:
+
+- `a + b` - Adds `a` & `b`
+
+- `a - b` - Subtract `b` from `a`
+
+- `a * b` - Multiplies `a` & `b`
+
+- `a / b` - Divides `a` by `b`
+
+- `a ** b` - Calculates `a` to the power of `b`
+
+- `a // b` - Calculates the integer division of `a` by `b`. This means you do `a / b`, and round the result down if it is a decimal. ex. `15 // 2 == 7`
+
+- `a % b` - Calculates `a` modulus `b`. This is like 'finding the remainder' when you divide `a` by `b`.
 
 ## Functions
 

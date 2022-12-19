@@ -7,9 +7,11 @@ Must include:
 [X] Variables & types
 [X] Control flow
 [X] Functions
-[ ] Basic (ish) OOP
+[X] Basic (ish) OOP
+
+[X] Modules / code splitting
+
 [ ] I/O or user input
-[ ] Modules / code splitting
 
 It should be:
 
@@ -28,7 +30,7 @@ It should be:
 | 4      | N/A                             | Player                                                                                       | This lesson does not teach new concepts, and instead consolidates concepts taught in previous lessons. They will code the player, including player movement. Note: the player is purely procedural, and segments are represented by tuples of positions |
 | 5      | OOP & Code splitting            | Apples grow the snake. Finished product.                                                     | OOP skils are introduced by refactoring the previous code to demonstrate the advantages of OOP. Notably the player will be changed such that player segments are given classes, and the snake is given the colour effect.                               |
 
-## Notes
+## Todo
 
 - Consider removing exceptions and returning a boolean from `Player.update` as its a very minor use of exceptions so could prove more confusing than helpful
   On the flipside, error handling is a very important and fundemental aspect of programming, so it would be nice to mention it. Verdict: Retain the excpetion
