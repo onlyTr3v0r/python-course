@@ -41,7 +41,7 @@ class Player:
             if new[0] == tile.x and new[1] == tile.y:
                 raise GameOverException()
 
-        PlayerTile(*new, recent.idx + 1, self)
+        PlayerTile(*new, not recent.dark, self)
 
 tiles = []
 class Tile:
@@ -56,12 +56,12 @@ class Tile:
         pygame.draw.rect(screen, self.colour, (self.x * scale[0], self.y * scale[1], scale[0], scale[1]))
 
 class PlayerTile(Tile):
-    def __init__(self, x, y, idx, player: Player):
+    def __init__(self, x, y, dark, player):
 
-        colour = (29, 108, 62) if not idx % 2 else (18, 139, 76)
+        colour = (29, 108, 62) if not dark else (18, 139, 76)
         super().__init__(x, y, colour)
 
-        self.idx = idx
+        self.dark = dark
         self.player = player
         self.player.tiles.append(self)
 
@@ -76,7 +76,7 @@ class Apple(Tile):
 
         player_positions = [(tile.x, tile.y) for tile in player.tiles]
         while True:
-            x, y = random.randint(0, TILES_DIM[0]), random.randint(0, TILES_DIM[1])
+            x, y = random.randint(0, TILES_DIM[0] - 1), random.randint(0, TILES_DIM[1] - 1)
             if (x, y) not in player_positions:
                 break
 
@@ -94,7 +94,7 @@ for x in range(TILES_DIM[0]):
         Tile(x, y, colour)
 
 for i in range(5):
-    PlayerTile(TILES_DIM[0] // 2, i + 3, i, player)
+    PlayerTile(TILES_DIM[0] // 2, i + 3, not i % 2, player)
 
 for i in range(APPLE_COUNT):
     Apple()
